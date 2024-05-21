@@ -27,17 +27,17 @@ spring:
           uri: lb://service-product
           predicates:
             - Path=/api/product/**
-          filters:
-            - name: Customizable
-              args:
-                message: Mensaje personalizado
-                cookieName: usuario
-                cookieValue: fcuadros
-            - name: CircuitBreaker
-              args:
-                name: product
-                statusCodes: 500, 404
-                fallbackUri: forward:/api/client/detail/9/count/1
+          #filters:
+            #- name: Customizable
+              #args:
+                #message: Mensaje personalizado
+                #cookieName: usuario
+                #cookieValue: fcuadros
+            #- name: CircuitBreaker
+              #args:
+                #name: product
+                #statusCodes: 500, 404
+                #fallbackUri: forward:/api/client/detail/9/count/1
         - id: service-client
           uri: lb://service-client
           predicates:

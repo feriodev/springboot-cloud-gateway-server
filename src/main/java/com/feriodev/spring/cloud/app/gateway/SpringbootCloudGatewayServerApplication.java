@@ -11,5 +11,4 @@ public class SpringbootCloudGatewayServerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootCloudGatewayServerApplication.class, args);
 	}
-
 }

@@ -27,6 +27,8 @@ spring:
           uri: lb://service-product
           predicates:
             - Path=/api/product/**
+          filters:
+            - StripPrefix=2
           #filters:
             #- name: Customizable
               #args:
@@ -43,6 +45,20 @@ spring:
           predicates:
             - Path=/api/client/**
           filters:
-            - AddRequestHeader=token-request, 123456
-            - AddResponseHeader=token-response, 78956
-            - AddRequestParameter=name, fcuadros
+            - StripPrefix=2
+          #filters:
+            #- AddRequestHeader=token-request, 123456
+            #- AddResponseHeader=token-response, 78956
+            #- AddRequestParameter=name, fcuadros
+        - id: service-user
+          uri: lb://service-user
+          predicates:
+            - Path=/api/user/**
+          filters:
+            - StripPrefix=2
+        - id: service-security
+          uri: lb://service-security
+          predicates:
+            - Path=/api/security/**
+          filters:
+            - StripPrefix=2

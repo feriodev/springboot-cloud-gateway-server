@@ -2,12 +2,10 @@ package com.feriodev.spring.cloud.app.gateway.factory;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.OrderedGatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
-import org.springframework.http.ResponseCookie;
 import org.springframework.stereotype.Component;
 
 import lombok.extern.slf4j.Slf4j;
@@ -39,10 +37,10 @@ public class CustomGatewayFilterFactory extends AbstractGatewayFilterFactory<Con
 			return chain.filter(exchange).then(Mono.fromRunnable(() -> {
 				log.info("Ejecutando post-filterFactory: " + config.getMessage());
 				
-				Optional.ofNullable(config.getCookieValue()).ifPresent(cookie -> {
+				/*Optional.ofNullable(config.getCookieValue()).ifPresent(cookie -> {
 					exchange.getResponse()
 							.addCookie(ResponseCookie.from(config.getCookieName(), config.getCookieValue()).build());
-				});
+				});*/
 			}));
 		}, 2);
 	}
